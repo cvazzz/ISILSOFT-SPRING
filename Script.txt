@@ -1,0 +1,26 @@
+USE master;
+-- Crear la base de datos
+CREATE DATABASE miSistemaBD;
+
+-- Usar la base de datos creada
+USE miSistemaBD;
+
+CREATE TABLE JefeTienda (
+    idJefeTienda INT PRIMARY KEY IDENTITY(1,1),
+    nombre VARCHAR(50) NOT NULL,
+    apellido_paterno VARCHAR(50) NOT NULL,
+    apellido_materno VARCHAR(50),
+    dni VARCHAR(15) UNIQUE NOT NULL
+);
+
+-- Crear la tabla ADMIN
+CREATE TABLE [dbo].[Usuario](
+	[codigo] [int] IDENTITY(1,1) NOT NULL,
+	[correo] [varchar](50) NULL,
+	[password] [varchar](20) NULL,
+	[estado] [varchar](20) NULL,
+	[perfil] [varchar](50) NULL
+) ON [PRIMARY]
+GO
+INSERT INTO [dbo].[Usuario] (correo, password, estado, perfil)
+VALUES ('ejemplo@correo.com', 'contraseña123', 'activo', 'usuario_normal');
